@@ -1,14 +1,14 @@
 {
-  "name": "dynonary-apis",
+  "name": "apis",
   "version": "1.0.0",
-  "description": "Dynonary - Free web app to learn english",
+  "description": "Free web app to learn english",
   "main": "index.js",
   "scripts": {
     "start": "node index.js",
     "dev": "nodemon index.js --inspect",
     "test": "SET NODE_ENV=production&&node index.js"
   },
-  "author": "Tuan Nguyen",
+  "author": "Duy Hiep",
   "license": "ISC",
   "dependencies": {
     "bcryptjs": "^2.4.3",
@@ -23,7 +23,6 @@
     "morgan": "^1.10.0",
     "nodemailer": "^6.6.3",
     "passport": "^0.4.1",
-    "passport-facebook-token": "^4.0.0",
     "passport-google-token": "^0.1.2",
     "path": "^0.12.7"
   },

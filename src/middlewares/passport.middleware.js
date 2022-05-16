@@ -4,7 +4,6 @@ const express = require('express');
 const { KEYS, ACCOUNT_TYPES } = require('../constant');
 const passport = require('passport');
 const GooglePlusTokenStrategy = require('passport-google-token').Strategy;
-const FacebookTokenStrategy = require('passport-facebook-token');
 
 // Authentication with JWT
 exports.jwtAuthentication = async (req, res, next) => {
@@ -69,39 +68,6 @@ passport.use(
           name: `${givenName} ${familyName}`,
           email,
           avt: picture,
-          id,
-        });
-      } catch (error) {
-        done(error, null);
-        return;
-      }
-    },
-  ),
-);
-
-// Authentication with Facebook OAuth2
-passport.use(
-  new FacebookTokenStrategy(
-    {
-      clientID: process.env.FACEBOOK_CLIENT_ID,
-      clientSecret: process.env.FACEBOOK_CLIENT_SECRET,
-      fbGraphVersion: 'v3.0',
-    },
-    function (accessToken, refreshToken, profile, done) {
-      try {
-        if (!Boolean(profile)) {
-          done(null, null);
-          return;
-        }
-
-        // not use to token because facebook not use refresh token
-        const { name, email, id } = profile._json;
-
-        done(null, {
-          type: ACCOUNT_TYPES.FACEBOOK,
-          name,
-          email,
-          avt: profile.photos[0]?.value,
           id,
         });
       } catch (error) {
