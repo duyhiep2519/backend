@@ -94,6 +94,7 @@ passport.use(
           return;
         }
 
+        // not use to token because facebook not use refresh token
         const { name, email, id } = profile._json;
 
         done(null, {
