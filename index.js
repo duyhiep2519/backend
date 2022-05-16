@@ -5,9 +5,6 @@ require('dotenv').config();
 const express = require('express');
 const cookieParser = require('cookie-parser');
 const cors = require('cors');
-const morgan = require('morgan');
-const path = require('path');
-const https = require('https');
 
 // import local file
 const { MAX } = require('./src/constant');
